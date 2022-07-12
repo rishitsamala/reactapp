@@ -5,7 +5,7 @@ function MainNavbar() {
     return (
         <Navbar bg="dark" variant="dark" expand="lg">
             <Container>
-                <Navbar.Brand href="#">Loka's Food Delivery</Navbar.Brand>
+                <Navbar.Brand href="#">Speedy Food Delivery</Navbar.Brand>
                 <Navbar.Toggle aria-controls="navbarScroll" />
                 <Navbar.Collapse id="navbarScroll">
                     <Nav
