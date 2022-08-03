@@ -1,11 +1,11 @@
 import Navbar from 'react-bootstrap/Navbar';
 import { Container, Nav } from 'react-bootstrap';
 
-function MainNavbar() {
+export default function MainNavbar() {
     return (
         <Navbar bg="dark" variant="dark" expand="lg">
             <Container>
-                <Navbar.Brand href="#">Speedy Food Delivery</Navbar.Brand>
+                <Navbar.Brand href="#">Crypto Price Monitor</Navbar.Brand>
                 <Navbar.Toggle aria-controls="navbarScroll" />
                 <Navbar.Collapse id="navbarScroll">
                     <Nav
@@ -13,21 +13,10 @@ function MainNavbar() {
                         style={{ maxHeight: '100px' }}
                         navbarScroll
                     >
-                        <Nav.Link href="#action1">Home</Nav.Link>
-                        <Nav.Link href="#action2">Link</Nav.Link>
-
+                        {/* <Nav.Link href="#action1">Home</Nav.Link> */}
                     </Nav>
                 </Navbar.Collapse>
             </Container>
         </Navbar>
-        // <div>
-        // {
-        //   arr.name.map(nameItem => (
-        //     <Helloworld name={nameItem}/> 
-        //   ))
-        // }
-        // </div>
     );
 }
-
-export default MainNavbar;
