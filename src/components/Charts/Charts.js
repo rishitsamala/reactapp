@@ -32,69 +32,64 @@ export default function Charts(props) {
   ];
 
   return (
-    <div>
-      {
-        cryptos.filter(crypto => crypto.id === props.clickedId).map(crypto => (
-
-          <div style={{ width: '55%', border: '2px groove black', margin: '20px auto', textAlign: 'center' }}>
-            <Line key={crypto.id}
-              data={{
-                datasets: [{
-                  label: crypto.title,
-                  backgroundColor: 'rgba(54, 162, 235, 0.5)',
-                  borderColor: 'rgb(54, 162, 235)',
-                  cubicInterpolationMode: 'monotone',
-                  fill: true,
-                  data: []
-                }]
-              }}
-              options={{
-                scales: {
-                  x: {
-                    type: 'realtime',
-                    realtime: {
-                      duration: 60000,
-                      refresh: 5000,
-                      delay: 5000,
-                      onRefresh: chart => {
-                        fetch(crypto.url)
-                          .then(response => response.json())
-                          .then(data => {
-                            if (crypto.id === 1) {
-                              chart.data.datasets.forEach(dataset => {
-                                dataset.data.push({
-                                  x: Date.now(),
-                                  y: data.bitcoin.usd
-                                });
-                              });
-                            } else if (crypto.id === 2) {
-                              chart.data.datasets.forEach(dataset => {
-                                dataset.data.push({
-                                  x: Date.now(),
-                                  y: data.ethereum.usd
-                                });
-                              });
-                            } else if (crypto.id === 3) {
-                              chart.data.datasets.forEach(dataset => {
-                                dataset.data.push({
-                                  x: Date.now(),
-                                  y: data.litecoin.usd
-                                });
-                              });
-                            }
-
-                            // update chart datasets keeping the current animation
-                            chart.update('quiet');
+    cryptos.filter(crypto => crypto.id === props.clickedId).map(crypto => (
+      <div style={{ width: '90%', border: '2px groove black', margin: '5px auto', textAlign: 'center' }}
+        key={crypto.id}>
+        <Line
+          data={{
+            datasets: [{
+              label: crypto.title,
+              backgroundColor: 'rgba(54, 162, 235, 0.5)',
+              borderColor: 'rgb(54, 162, 235)',
+              cubicInterpolationMode: 'monotone',
+              fill: true,
+              data: []
+            }]
+          }}
+          options={{
+            scales: {
+              x: {
+                type: 'realtime',
+                realtime: {
+                  duration: 60000,
+                  refresh: 5000,
+                  delay: 5000,
+                  onRefresh: chart => {
+                    fetch(crypto.url)
+                      .then(response => response.json())
+                      .then(data => {
+                        if (crypto.id === 1) {
+                          chart.data.datasets.forEach(dataset => {
+                            dataset.data.push({
+                              x: Date.now(),
+                              y: data.bitcoin.usd
+                            });
                           });
-                      }
-                    }
+                        } else if (crypto.id === 2) {
+                          chart.data.datasets.forEach(dataset => {
+                            dataset.data.push({
+                              x: Date.now(),
+                              y: data.ethereum.usd
+                            });
+                          });
+                        } else if (crypto.id === 3) {
+                          chart.data.datasets.forEach(dataset => {
+                            dataset.data.push({
+                              x: Date.now(),
+                              y: data.litecoin.usd
+                            });
+                          });
+                        }
+                        // update chart datasets keeping the current animation
+                        chart.update('quiet');
+                      });
                   }
                 }
-              }}
-            />
-          </div>
-        ))
-      }
-    </div>
+              }
+            }
+          }}
+        />
+      </div>
+    ))
   );
 }
