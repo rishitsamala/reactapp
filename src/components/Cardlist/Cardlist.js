@@ -7,7 +7,7 @@ export function Cardlist(props) {
             {
                 props.cryptos.map(crypto => (
                     <CardItem crypto={crypto} key={crypto.id} clickedId={props.clickedId}
-                        border={crypto.id === props.selectedId ? "3px groove black" : "1px groove black"}>
+                        border={crypto.id === props.selectedId ? "2px groove black" : "2px groove black"}>
                     </CardItem>
                 ))
             }
