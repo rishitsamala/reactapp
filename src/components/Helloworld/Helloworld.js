@@ -1,9 +1,9 @@
 import styles from './Helloworld.module.css'
 
-function Helloworld(props) {
+function Helloworld() {
   return (
     <div className={styles.test}>
-      Hello World {props.name}
+      Hello World {Date().toLocaleString()}
     </div>
   );
 }

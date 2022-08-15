@@ -9,7 +9,6 @@ import bitcoin from './imgs/Bitcoin.jpg';
 import ethereum from './imgs/Ethereum.jpg';
 import litecoin from './imgs/Litecoin.jpg';
 
-
 export default function App() {
   const [clickedId, setclickedId] = useState(1);
 
@@ -22,13 +21,11 @@ export default function App() {
   return (
     <div>
       <MainNavbar />
-      <Container>
-        <Cardlist cryptos={cryptos} clickedId={(clickedId) => setclickedId(clickedId)} selectedId={clickedId}></Cardlist>
-        {/* <Charts clickedId={clickedId}></Charts> */}
-      </Container>
-      <Container>
-        <AllCharts></AllCharts>
-      </Container>
+      <Cardlist cryptos={cryptos} clickedId={(clickedId) => setclickedId(clickedId)} selectedId={clickedId} />
+      <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center' }}>
+        <Charts clickedId={clickedId} />
+        <AllCharts />
+      </div>
     </div>
   );
 }

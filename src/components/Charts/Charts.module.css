@@ -1,0 +1,23 @@
+.left {
+    width: 49%;
+    /* The width is 49%, by default */
+    border: 2px groove black;
+    margin: 5px auto
+}
+
+.right {
+    width: 49%;
+    /* The width is 49%, by default */
+    border: 2px groove black;
+    margin: 5px auto
+}
+
+/* Use a media query to add a break point at 800px: */
+@media screen and (max-width: 800px) {
+
+    .left,
+    .right {
+        width: 98%;
+        /* The width is 98%, when the viewport is 800px or smaller */
+    }
+}
