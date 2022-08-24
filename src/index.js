@@ -1,13 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
+import MainNavbar from './components/MainNavbar/MainNavbar';
 import App from './App';
+import AllCharts from './components/Charts/AllCharts';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    <MainNavbar />
     <App />
+    <AllCharts />
   </React.StrictMode>
 );
 

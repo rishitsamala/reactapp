@@ -1,18 +1,30 @@
-.left {
-    width: 49%;
-    /* The width is 49%, by default */
-    border: 2px groove black;
-    margin: 5px auto
-}
-
+.left,
 .right {
-    width: 49%;
-    /* The width is 49%, by default */
+    width: 49.2%;
+    /* The width is 49.2%, by default */
+    display: inline-block;
     border: 2px groove black;
-    margin: 5px auto
+    margin: 5px;
 }
 
-/* Use a media query to add a break point at 800px: */
+@media screen and (max-width: 1300px) {
+
+    .left,
+    .right {
+        width: 49%;
+        /* The width is 49%, when the viewport is 1000px or smaller */
+    }
+}
+
+@media screen and (max-width: 1000px) {
+
+    .left,
+    .right {
+        width: 48.7%;
+        /* The width is 48.7%, when the viewport is 1000px or smaller */
+    }
+}
+
 @media screen and (max-width: 800px) {
 
     .left,
